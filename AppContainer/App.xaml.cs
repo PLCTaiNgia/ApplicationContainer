@@ -1,0 +1,14 @@
+﻿using AppContainer.Views;
+
+namespace AppContainer
+{
+    public partial class App : Application
+    {
+        public App()
+        {
+            InitializeComponent();
+
+            MainPage = new AppShell();
+        }
+    }
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContainer.Views.LoginPage"
+             Title="LoginPage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#001B79">
+    <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+
+        <Image Source="logo_02.png" HeightRequest="150" WidthRequest="150" />
+
+        <VerticalStackLayout Spacing="5">
+            <Label Text="Đăng nhập" FontSize="32" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" />
+        </VerticalStackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
+                <Image Source="user.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Entry TextColor="Black" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Tên người dùng..." Keyboard="Text" />
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
+                <Image Source="lock.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Entry TextColor="Black"  Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Mật khẩu..." Keyboard="Text"  IsPassword="True"/>
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <Label Text="Bạn chưa có tài khoản?" TextColor="White" />
+            <Label Text="Đăng ký ngay" TextColor="#39A7FF" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <Button Text="Đăng nhập"
+                WidthRequest="100" 
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                BackgroundColor="#1640D6" 
+                Clicked="Button_DangNhap"></Button>
+    </VerticalStackLayout>
+</ContentPage>

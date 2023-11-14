@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
+             xmlns:dxc="clr-namespace:DevExpress.Maui.Charts;assembly=DevExpress.Maui.Charts"
+             xmlns:dxcv="clr-namespace:DevExpress.Maui.CollectionView;assembly=DevExpress.Maui.CollectionView"
+             xmlns:dxsch="clr-namespace:DevExpress.Maui.Scheduler;assembly=DevExpress.Maui.Scheduler"
+             xmlns:dxg="clr-namespace:DevExpress.Maui.DataGrid;assembly=DevExpress.Maui.DataGrid"
+             xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
+             xmlns:dxdf="clr-namespace:DevExpress.Maui.DataForm;assembly=DevExpress.Maui.Editors"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="true"
+             x:Class="AppContainer.Views.HomePage"
+             Title="HomePage">
+    <ContentPage.Content>
+        <Grid RowDefinitions="50,*,Auto"
+              RowSpacing="10">
+            <Grid ColumnDefinitions="105,100,*"
+                  Margin="30,10,0,0">
+                <dxe:ComboBoxEdit
+                    Grid.Column="0"
+                    x:Name="ComboOprld"
+                    PlaceholderText="Oprld"
+                    PlaceholderColor="Red"
+                    DropDownIconColor="Red"
+                    DisplayMember="Name"
+                    SelectionChanged="ComboOprld_SelectionChanged"
+                    BoxPadding="10"
+                    HeightRequest="40"
+                    WidthRequest="100"
+                    Margin="50,0">
+                </dxe:ComboBoxEdit>
+
+                <dxe:ComboBoxEdit
+                    Grid.Column="1"
+                    x:Name="ComboSize"
+                    PlaceholderText="Size"
+                    PlaceholderColor="Red"
+                    DropDownIconColor="Green"
+                    DisplayMember="Value"
+                    SelectionChanged="ComboSize_SelectionChanged"
+                    BoxPadding="10"
+                    HeightRequest="40"
+                    WidthRequest="100"
+                    Margin="50,0">
+                </dxe:ComboBoxEdit>
+
+                <Frame Margin="20,0,25,0"
+                       Grid.Column="2">
+                    <SearchBar 
+                        HeightRequest="40"
+                        Placeholder="Search Contact (OprId, Size, CntrNo)"
+                        TextChanged="SearchBar_TextChanged"></SearchBar>
+                </Frame>
+            </Grid>
+            
+            <Grid Grid.Row="1" RowDefinitions="*" Padding="25,10,25,15" RowSpacing="10">
+                <ListView
+                    Grid.Row="0"
+                    x:Name="listContainer"
+                    RowHeight="60"
+                    ItemSelected="listContainer_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell
+                                Text="{Binding CntrNo}"
+                                Detail="{Binding OprId}">
+                            </TextCell>
+                            
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Grid.Row="0"
+                       x:Name="labelMess"
+                       Text="Hiện tại chưa có Container này. (Không có dữ liệu)"
+                       Opacity="0"
+                       FontFamily="roboto-regular"
+                       FontSize="Body"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Grid>
+            <Button Grid.Row="2" Margin="25,20,25,20"
+                Text="Thêm Container"
+                Style="{StaticResource PrimaryButton}"
+                Clicked="OnOpenWebButtonClicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

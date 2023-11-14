@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContainer.Views.DetailPage"
+             Title="DetailPage">
+    <VerticalStackLayout>
+        <Grid RowDefinitions="60,auto,*,80,auto"
+            BackgroundColor="AliceBlue">
+            <Grid Grid.Row="0">
+                <Label Text="THÔNG TIN CHI TIẾT"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="Large"
+                       TextColor="Blue"
+                       FontFamily="roboto-bold"
+                       TextDecorations="Underline"/>
+            </Grid>
+
+            <Grid Grid.Row="1"
+                Margin="15,10,15,0"
+                RowDefinitions="30,30,30"
+                ColumnDefinitions="*,200">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    x:Name="lableCntrNo"
+                    Text="Số Container"
+                    FontFamily="roboto-bold"
+                    TextColor="Black"
+                    Opacity="0.8"
+                    FontSize="Header"/>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    x:Name="lableCntrSize"
+                    Text="Kích cỡ"
+                    FontFamily="roboto-bold"
+                        TextColor="Black"
+                        Opacity="0.8"
+                    FontSize="Header"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    x:Name="lableOprId"
+                    Text="Hãng khai thác"
+                    FontFamily="roboto-bold"
+                        TextColor="Black"
+                        Opacity="0.8"
+                    FontSize="Header"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    x:Name="lableStatus"
+                    Text="Loại Container"
+                    FontFamily="roboto-bold"
+                        TextColor="Black"
+                        Opacity="0.8"
+                    FontSize="Header"/>
+                <Label
+                    Grid.Row="2"
+                    x:Name="lableCMStatus"
+                    Text="Trạng thái Container trên bãi"
+                    FontFamily="roboto-bold"
+                        TextColor="Black"
+                        Opacity="0.8"
+                    FontSize="Header"/>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Image 
+                    x:Name="imgContainer"
+                    Source="background" 
+                    HorizontalOptions="FillAndExpand" 
+                    Aspect="Fill"/>
+            </Grid>
+
+            <Grid Grid.Row="3"
+                ColumnDefinitions="auto, auto, auto" 
+                HorizontalOptions="Center"
+                ColumnSpacing="10"
+                Margin="0, 10, 0, 0">
+                <Grid Grid.Column="0">
+                    <Image 
+                        x:Name="imgContainer1"
+                        Source="background" 
+                        HorizontalOptions="FillAndExpand" 
+                        Aspect="Fill"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Image 
+                        x:Name="imgContainer2"
+                        Source="background" 
+                        HorizontalOptions="FillAndExpand" 
+                        Aspect="Fill"/>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Image 
+                        x:Name="imgContainer3"
+                        Source="background" 
+                        HorizontalOptions="FillAndExpand" 
+                        Aspect="Fill"/>
+                </Grid>
+            </Grid>
+
+            <Button Grid.Row="4"
+                Margin="10"
+                Text="Quay lại"
+                Clicked="Button_Clicked"/>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>

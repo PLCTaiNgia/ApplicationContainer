@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContainer.Views.AddContainer"
+             Title="AddContainer">
+    <VerticalStackLayout BackgroundColor="AliceBlue">
+        <Grid RowDefinitions="*,Auto"
+            Margin="15,10,15,0">
+            <Grid Grid.Row="0"
+                Padding="0,15,0,20"
+                RowSpacing="10"
+                RowDefinitions="*,*,*,*,*">
+                <Grid Grid.Row="0"
+                    ColumnDefinitions="100,*">
+                    <Label Grid.Column="0"
+                            VerticalOptions="Center"
+                            Text="CntrNo"
+                            FontAttributes="Bold"
+                            FontSize="Header"/>
+                    <Frame Grid.Column="1"
+                        Padding="0">
+                        <Entry VerticalOptions="Center" 
+                               x:Name="EntryCntrNo"/>
+                    </Frame>
+                    
+                </Grid>
+
+                <Grid Grid.Row="1"
+                    ColumnDefinitions="100,*">
+                    <Label
+                        Grid.Row="1"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        Text="CntrSize"
+                        FontSize="Header"/>
+                    <Frame Grid.Column="1"
+                        Padding="0">
+                        <Entry VerticalOptions="Center" 
+                               x:Name="EntryCntrSize"/>
+                    </Frame>
+
+                </Grid>
+                <Grid Grid.Row="2"
+                    ColumnDefinitions="100,*">
+                    <Label
+                        Grid.Row="2"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        Text="OprId"
+                        FontSize="Header"/>
+                    <Frame Grid.Column="1"
+                        Padding="0">
+                        <Entry VerticalOptions="Center"
+                               x:Name="EntryOprId"/>
+                    </Frame>
+
+                </Grid>
+                <Grid Grid.Row="3"
+                    ColumnDefinitions="100,*">
+                    <Label
+                        Grid.Row="3"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        Text="Status"
+                        FontSize="Header"/>
+                    <Frame Grid.Column="1"
+                        Padding="0">
+                        <Entry VerticalOptions="Center"
+                               x:Name="EntryStatus"/>
+                    </Frame>
+
+                </Grid>
+                <Grid Grid.Row="4"
+                    ColumnDefinitions="100,*">
+                    <Label
+                        Grid.Row="4"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        Text="CMStatus"
+                        FontSize="Header"/>
+                    <Frame Grid.Column="1"
+                        Padding="0">
+                        <Entry VerticalOptions="Center"
+                               x:Name="EntryCMStatus"/>
+                    </Frame>
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  HorizontalOptions="Center"
+                  ColumnDefinitions="150, 150">
+                <Button Grid.Column="0"
+                    Margin="10"
+                    Text="Lưu"
+                    Clicked="Button_Clicked_1"/>
+
+                <Button Grid.Column="1"
+                    Margin="10"
+                    Text="Quay lại"
+                    Clicked="Button_Clicked_2"/>
+            </Grid>
+                
+            </Grid>
+    </VerticalStackLayout>
+</ContentPage>
