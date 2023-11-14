@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace AppContainer.Models
 {
     public class Token
     {
+        [JsonPropertyName("accessToken")]
         public string AccessToken { get; set; }
     }
 }

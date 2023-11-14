@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace AppContainer.Models
 {
     public class User
     {
-        public int id { get; set; }
-        public string fullName { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+        [JsonPropertyName("fullName")]
+        public string FullName { get; set; }
+        [JsonPropertyName("username")]
+        public string Username { get; set; }
+        [JsonPropertyName("password")]
+        public string Password { get; set; }
     }
 }

@@ -1,24 +1,21 @@
-using AppContainer.Models;
-using Newtonsoft.Json;
+using AppContainer.ViewModels;
 
 namespace AppContainer.Views;
 
 public partial class LoginPage : ContentPage
 {
-    public User _user;
-	public LoginPage()
-	{
-		InitializeComponent();
-	}
-	public async void LoadUser()
-	{
-		HttpClient httpClient = new HttpClient();
-        var Json = await httpClient.GetStringAsync($"{constants.URL}/auth/Login");
-        AuthResponse auth = JsonConvert.DeserializeObject<AuthResponse>(Json);
-
-    }
-    private void Button_DangNhap(object sender, EventArgs e)
+    public LoginPage(LoginViewModel vm)
     {
+        InitializeComponent();
+        BindingContext = vm;
+    }
 
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        if (!string.IsNullOrEmpty(await SecureStorage.Default.GetAsync(constants.CURRENT_USER)))
+        {
+            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+        }
     }
 }
