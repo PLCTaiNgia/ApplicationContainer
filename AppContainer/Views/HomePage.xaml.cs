@@ -67,6 +67,9 @@ public partial class HomePage : ContentPage
 
     private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
     {
+        if (labelMess.Opacity == 1)
+            labelMess.Opacity = 0;
+
         var container = new ObservableCollection<Container>(ResponeContainer.SearchContainer((((SearchBar)sender).Text), _containers));
         listContainer.ItemsSource = container;
     }
