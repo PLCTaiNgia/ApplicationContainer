@@ -4,6 +4,7 @@ namespace AppContainer.Services.AuthService
 {
     public interface IAuthService
     {
-        Task<bool> Login(LoginDto loginDto);
+        Task<bool> LoginAsync(LoginDto loginDto);
+        Task<bool> RegisterAsync(RegisterDto registerDto);
     }
 }

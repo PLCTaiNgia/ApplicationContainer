@@ -31,10 +31,12 @@ namespace AppContainer
 
             #region Add DI Pages
             builder.Services.AddSingleton<LoginPage>();
+            builder.Services.AddSingleton<RegisterPage>();
             #endregion
 
             #region Add DI ViewModels
             builder.Services.AddSingleton<LoginViewModel>();
+            builder.Services.AddSingleton<RegisterViewModel>();
 
             #endregion
 
