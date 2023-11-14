@@ -1,10 +1,8 @@
-﻿using CommunityToolkit.Maui;
+﻿using AppContainer.Services.AuthService;
+using AppContainer.ViewModels;
+using AppContainer.Views;
+using CommunityToolkit.Maui;
 using DevExpress.Maui;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls.Compatibility;
-using Microsoft.Maui.Controls.Compatibility.Hosting;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
 
 namespace AppContainer
 {
@@ -25,6 +23,20 @@ namespace AppContainer
                     fonts.AddFont("roboto-regular.ttf", "Roboto");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            #region Add DI Services
+            builder.Services.AddSingleton<IAuthService, AuthService>();
+
+            #endregion
+
+            #region Add DI Pages
+            builder.Services.AddSingleton<LoginPage>();
+            #endregion
+
+            #region Add DI ViewModels
+            builder.Services.AddSingleton<LoginViewModel>();
+
+            #endregion
 
             return builder.Build();
         }

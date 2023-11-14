@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppContainer.ViewModels"
+             x:DataType="vm:LoginViewModel"
              x:Class="AppContainer.Views.LoginPage"
              Title="LoginPage"
              Shell.TabBarIsVisible="False"
@@ -22,7 +24,7 @@
                 <Image Source="user.png" HeightRequest="20" WidthRequest="20" />
             </Frame>
             <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                <Entry TextColor="Black" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Tên người dùng..." Keyboard="Text" />
+                <Entry Text="{Binding UserName}" TextColor="Black" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Tên người dùng..." Keyboard="Text" />
             </Frame>
         </StackLayout>
 
@@ -31,7 +33,7 @@
                 <Image Source="lock.png" HeightRequest="20" WidthRequest="20" />
             </Frame>
             <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                <Entry TextColor="Black"  Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Mật khẩu..." Keyboard="Text"  IsPassword="True"/>
+                <Entry Text="{Binding Password}" TextColor="Black"  Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Mật khẩu..." Keyboard="Text"  IsPassword="True"/>
             </Frame>
         </StackLayout>
 
@@ -49,6 +51,7 @@
                 CornerRadius="20"
                 HorizontalOptions="Center"
                 BackgroundColor="#1640D6" 
-                Clicked="Button_DangNhap"></Button>
+                Command="{Binding LoginCommand}"
+                ></Button>
     </VerticalStackLayout>
 </ContentPage>
