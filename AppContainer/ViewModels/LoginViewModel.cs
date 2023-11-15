@@ -26,16 +26,22 @@ namespace AppContainer.ViewModels
         {
             var loginPayload = new LoginDto { UserName = UserName, Password = Password };
 
-            var result = await authService.Login(loginPayload);
+            var result = await authService.LoginAsync(loginPayload);
 
             if (result)
             {
-                await Shell.Current.GoToAsync($"{nameof(HomePage)}");
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
             }
             else
             {
 
             }
+        }
+
+        [RelayCommand]
+        async Task RedirectToRegisterPage()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
         }
     }
 }

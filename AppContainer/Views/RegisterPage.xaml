@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppContainer.ViewModels"
+             x:DataType="vm:RegisterViewModel"
+             x:Class="AppContainer.Views.RegisterPage"
+              Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#001B79"
+             Title="RegisterPage">
+    <VerticalStackLayout
+    Spacing="25"
+    Padding="30,0"
+    VerticalOptions="Center"
+    >
+
+        <Image Source="logo_02.png" HeightRequest="150" WidthRequest="150" />
+
+        <VerticalStackLayout Spacing="5">
+            <Label Text="Đăng ký" FontSize="32" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" />
+        </VerticalStackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
+                <Image Source="user.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Entry Text="{Binding FullName}" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Họ và tên..." Keyboard="Text" />
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
+                <Image Source="user.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Entry Text="{Binding Username}" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Tên người dùng..." Keyboard="Text" />
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
+                <Image Source="lock.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Entry  Text="{Binding Password}" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Mật khẩu..." Keyboard="Text"  IsPassword="True"/>
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
+                <Image Source="lock.png" HeightRequest="20" WidthRequest="20" />
+            </Frame>
+            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Entry Text="{Binding ConfirmPassword}" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Nhập lại mật khẩu..." Keyboard="Text"  IsPassword="True"/>
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <Label Text="Bạn đã có tài khoản?" TextColor="White" />
+            <Label Text="Đăng nhập ngay" TextColor="#39A7FF" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RedirectToLoginPageCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+
+        <Button Text="Đăng ký" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#1640D6" Command="{Binding RegisterCommand}"  ></Button>
+
+
+    </VerticalStackLayout>
+</ContentPage>

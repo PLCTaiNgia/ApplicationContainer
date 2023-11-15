@@ -12,6 +12,8 @@ public partial class LoginPage : ContentPage
 
     protected override async void OnAppearing()
     {
+        SecureStorage.Default.RemoveAll();
+
         base.OnAppearing();
         if (!string.IsNullOrEmpty(await SecureStorage.Default.GetAsync(constants.CURRENT_USER)))
         {
