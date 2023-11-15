@@ -35,7 +35,7 @@ namespace AppContainer.ViewModels
             }
             else
             {
-
+                //xu ly loi
             }
         }
 

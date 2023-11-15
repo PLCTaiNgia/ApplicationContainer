@@ -24,7 +24,7 @@ namespace AppContainer.Services.AuthService
             string resultString = await response.Content.ReadAsStringAsync();
 
             var result = JsonConvert.DeserializeObject<ResponseApi<AuthResponse>>(resultString);
-            //check dk
+            //da check dk
             if(result.Success == true && result.Data != null)
             {
                 await SecureStorage.Default.SetAsync(constants.TOKEN, result.Data.Token.AccessToken);
