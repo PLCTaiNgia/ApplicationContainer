@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:AppContainer.ViewModels"
              x:DataType="vm:LoginViewModel"
              x:Class="AppContainer.Views.LoginPage"
-             Title="LoginPage"
+             Title="Login"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False"
              BackgroundColor="#001B79">

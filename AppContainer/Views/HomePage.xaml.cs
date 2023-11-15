@@ -51,10 +51,10 @@ public partial class HomePage : ContentPage
         ComboSize.ItemsSource = _sizecontainers;
     }
 
-    async void OnOpenWebButtonClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(AddContainer));
-    }
+    //async void OnOpenWebButtonClicked(object sender, EventArgs e)
+    //{
+    //    await Shell.Current.GoToAsync(nameof(LoginPage));
+    //}
 
     private async void listContainer_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {

@@ -11,9 +11,9 @@
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="true"
              x:Class="AppContainer.Views.HomePage"
-             Title="HomePage">
+             Title="HOME">
     <ContentPage.Content>
-        <Grid RowDefinitions="50,*,Auto"
+        <Grid RowDefinitions="50,*"
               RowSpacing="10">
             <Grid ColumnDefinitions="105,100,*"
                   Margin="30,10,0,0">
@@ -79,10 +79,11 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
             </Grid>
-            <Button Grid.Row="2" Margin="25,20,25,20"
-                Text="Thêm Container"
+            <!--<Button Grid.Row="2" Margin="25,20,25,20"
+                Text="Logout"
+                FontAttributes="Bold"
                 Style="{StaticResource PrimaryButton}"
-                Clicked="OnOpenWebButtonClicked"/>
+                Clicked="OnOpenWebButtonClicked"/>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>
