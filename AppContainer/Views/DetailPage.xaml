@@ -75,23 +75,45 @@
             </Grid>
 
             <Grid Grid.Row="3"
-                ColumnDefinitions="auto, auto, auto" 
+                ColumnDefinitions="125, 125, 125" 
                 HorizontalOptions="Center"
                 ColumnSpacing="10"
                 Margin="0, 10, 0, 0">
+                <!--<Border
+                    x:Name="borderImg"
+                    Stroke="Red"
+                    StrokeThickness="3"
+                    WidthRequest="135"
+                    HeightRequest="80"
+                    Opacity="0"
+                    Grid.Column="0"/>-->
                 <Grid Grid.Column="0">
+                    <Border
+                        x:Name="borderImg0"
+                        Stroke="Red"
+                        StrokeThickness="3"
+                        WidthRequest="135"
+                        HeightRequest="80"
+                        Opacity="0"/>
                     <Image 
                         x:Name="imgContainer1"
                         Source="background" 
-                        HorizontalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand"
                         Aspect="Fill">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"
-                              NumberOfTapsRequired="1" />
+                                NumberOfTapsRequired="1" />
                         </Image.GestureRecognizers>
                     </Image>
                 </Grid>
                 <Grid Grid.Column="1">
+                    <Border
+                        x:Name="borderImg1"
+                        Stroke="Red"
+                        StrokeThickness="3"
+                        WidthRequest="135"
+                        HeightRequest="80"
+                        Opacity="0"/>
                     <Image 
                         x:Name="imgContainer2"
                         Source="background" 
@@ -104,6 +126,13 @@
                     </Image>
                 </Grid>
                 <Grid Grid.Column="2">
+                    <Border
+                        x:Name="borderImg2"
+                        Stroke="Red"
+                        StrokeThickness="3"
+                        WidthRequest="135"
+                        HeightRequest="80"
+                        Opacity="0"/>
                     <Image 
                         x:Name="imgContainer3"
                         Source="background" 

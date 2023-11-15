@@ -38,16 +38,37 @@ public partial class DetailPage : ContentPage
 
     private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs e)
     {
-        imgContainer.Source = imgContainer1.Source;
+        borderImg0.Opacity = 1;
+        if (borderImg0.Opacity == 1)
+        {
+            borderImg1.Opacity = 0;
+            borderImg2.Opacity = 0;
+            imgContainer.Source = imgContainer1.Source;
+        }
+            
     }
 
     private void OnTapGestureRecognizerTapped1(object sender, TappedEventArgs e)
     {
-        imgContainer.Source = imgContainer2.Source;
+        borderImg1.Opacity = 1;
+        if (borderImg1.Opacity == 1)
+        {
+            borderImg0.Opacity = 0;
+            borderImg2.Opacity = 0;
+            imgContainer.Source = imgContainer2.Source;
+        }
+        
     }
 
     private void OnTapGestureRecognizerTapped2(object sender, TappedEventArgs e)
     {
-        imgContainer.Source = imgContainer3.Source;
+        borderImg2.Opacity = 1;
+        if (borderImg2.Opacity == 1)
+        {
+            borderImg0.Opacity = 0;
+            borderImg1.Opacity = 0;
+            imgContainer.Source = imgContainer3.Source;
+        }
+        
     }
 }

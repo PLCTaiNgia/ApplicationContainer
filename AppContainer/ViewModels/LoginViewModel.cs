@@ -24,6 +24,7 @@ namespace AppContainer.ViewModels
         [RelayCommand]
         async Task Login()
         {
+            //check
             var loginPayload = new LoginDto { UserName = UserName, Password = Password };
 
             var result = await authService.LoginAsync(loginPayload);
