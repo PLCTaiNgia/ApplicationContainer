@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:AppContainer.ViewModels"
              x:DataType="vm:LoginViewModel"
              x:Class="AppContainer.Views.LoginPage"
@@ -19,23 +20,41 @@
             <Label Text="Đăng nhập" FontSize="32" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" />
         </VerticalStackLayout>
 
-        <StackLayout Orientation="Horizontal">
-            <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
-                <Image Source="user.png" HeightRequest="20" WidthRequest="20" />
-            </Frame>
-            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                <Entry Text="{Binding UserName}" TextColor="Black" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Tên người dùng..." Keyboard="Text" />
-            </Frame>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
+                    <Image Source="user.png" HeightRequest="20" WidthRequest="20" />
+                </Frame>
+                <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <Entry  Text="{Binding UserName}" TextColor="Black" Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Tên người dùng..." Keyboard="Text" >
+                        <Entry.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                    EventName="Unfocused"
+                                    Command="{Binding ValidateUsernameCommand}" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+            </StackLayout>
+            <Label TextColor="Red" Margin="60,0,0,0" Text="{Binding UserNameErrorMessage, Mode=TwoWay}" FontSize="14" IsVisible="{Binding UserNameError, Mode=TwoWay}" />
         </StackLayout>
-
-        <StackLayout Orientation="Horizontal">
-            <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
-                <Image Source="lock.png" HeightRequest="20" WidthRequest="20" />
-            </Frame>
-            <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                <Entry Text="{Binding Password}" TextColor="Black"  Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Mật khẩu..." Keyboard="Text"  IsPassword="True"/>
-            </Frame>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Frame HasShadow="True" HeightRequest="56" WidthRequest="56" CornerRadius="28" BorderColor="White">
+                    <Image Source="lock.png" HeightRequest="20" WidthRequest="20" />
+                </Frame>
+                <Frame HeightRequest="45" Margin="-20,0,0,0" Padding="0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                    <Entry Text="{Binding Password}" TextColor="Black"  Margin="20,0,0,0" VerticalOptions="Center" Placeholder="Mật khẩu..." Keyboard="Text"  IsPassword="True">
+                        <Entry.Behaviors>
+                            <toolkit:EventToCommandBehavior
+                                EventName="Unfocused"
+                                Command="{Binding ValidatePasswordCommand}" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </Frame>
+            </StackLayout>
+            <Label TextColor="Red" Margin="60,0,0,0" Text="{Binding PasswordErrorMessage, Mode=TwoWay}" FontSize="14" IsVisible="{Binding PasswordError, Mode=TwoWay}" />
         </StackLayout>
+        
 
         <StackLayout Orientation="Horizontal" Spacing="10">
             <Label Text="Bạn chưa có tài khoản?" TextColor="White" />
