@@ -14,6 +14,7 @@ namespace AppContainer.Services.AuthService
             httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri($"{constants.URL}/auth/");
         }
+
         public async Task<bool> LoginAsync(LoginDto loginDto)
         {
             var jsonLoginPayload = JsonConvert.SerializeObject(loginDto);
@@ -23,9 +24,13 @@ namespace AppContainer.Services.AuthService
             string resultString = await response.Content.ReadAsStringAsync();
 
             var result = JsonConvert.DeserializeObject<ResponseApi<AuthResponse>>(resultString);
+            //da check dk
+            if(result.Success == true && result.Data != null)
+            {
+                await SecureStorage.Default.SetAsync(constants.TOKEN, result.Data.Token.AccessToken);
+                await SecureStorage.Default.SetAsync(constants.CURRENT_USER, JsonConvert.SerializeObject(result.Data.User));
 
-            await SecureStorage.Default.SetAsync(constants.TOKEN, result.Data.Token.AccessToken);
-            await SecureStorage.Default.SetAsync(constants.CURRENT_USER, JsonConvert.SerializeObject(result.Data.User));
+            }   
 
             return result.Success;
         }
