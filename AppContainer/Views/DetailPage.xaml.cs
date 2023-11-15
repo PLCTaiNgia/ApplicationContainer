@@ -35,4 +35,19 @@ public partial class DetailPage : ContentPage
     {
         await Shell.Current.GoToAsync("..");
     }
+
+    private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs e)
+    {
+        imgContainer.Source = imgContainer1.Source;
+    }
+
+    private void OnTapGestureRecognizerTapped1(object sender, TappedEventArgs e)
+    {
+        imgContainer.Source = imgContainer2.Source;
+    }
+
+    private void OnTapGestureRecognizerTapped2(object sender, TappedEventArgs e)
+    {
+        imgContainer.Source = imgContainer3.Source;
+    }
 }
