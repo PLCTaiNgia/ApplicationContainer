@@ -13,5 +13,11 @@ namespace AppContainer
             Routing.RegisterRoute(nameof(AddContainer), typeof(AddContainer));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
         }
+
+
+        private void Button_Clicked_Logout(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
