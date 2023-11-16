@@ -8,6 +8,7 @@
              Title="Login"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
              BackgroundColor="#001B79">
     <VerticalStackLayout
         Spacing="25"

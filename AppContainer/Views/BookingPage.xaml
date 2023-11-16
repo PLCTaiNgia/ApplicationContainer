@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
+             xmlns:dxc="clr-namespace:DevExpress.Maui.Charts;assembly=DevExpress.Maui.Charts"
+             xmlns:dxcv="clr-namespace:DevExpress.Maui.CollectionView;assembly=DevExpress.Maui.CollectionView"
+             xmlns:dxsch="clr-namespace:DevExpress.Maui.Scheduler;assembly=DevExpress.Maui.Scheduler"
+             xmlns:dxg="clr-namespace:DevExpress.Maui.DataGrid;assembly=DevExpress.Maui.DataGrid"
+             xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
+             xmlns:dxdf="clr-namespace:DevExpress.Maui.DataForm;assembly=DevExpress.Maui.Editors"
+             xmlns:vm="clr-namespace:AppContainer.ViewModels"
+             xmlns:model="clr-namespace:AppContainer.Models"
+             x:DataType="vm:BookingViewModel"
+             x:Class="AppContainer.Views.BookingPage"
+             Title="Booking"
+             BackgroundColor="#F3F3F3">
+    
+    <ScrollView>
+        <Grid RowDefinitions="Auto" Margin="10,10,10,0">
+            <dxcv:DXCollectionView Grid.Row="0" ItemsSource="{Binding Bookings}" ItemSpacing="12" Margin="0,30,0,30" >
+                <dxcv:DXCollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="22" BackgroundColor="White" HasShadow="False"  CornerRadius="12">
+
+                            <StackLayout Orientation="Vertical" Spacing="10">
+                                <CarouselView ItemsSource="{Binding Container.Thumbnail}"   >
+                                    <CarouselView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border WidthRequest="400" HeightRequest="250">
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="12" />
+                                                    </Border.StrokeShape>
+                                                <Image Source="{Binding .}" Aspect="AspectFill" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </CarouselView.ItemTemplate>
+                                </CarouselView>
+
+                                            
+
+
+                                <Grid ColumnDefinitions="*,*">
+                                    <StackLayout Grid.Column="0" HorizontalOptions="Start" Orientation="Horizontal" Spacing="10" >
+                                        <Label Text="Số Container: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding ContainerId}" TextColor="Red"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" HorizontalOptions="End" Orientation="Horizontal" Spacing="10" >
+                                        <Label Text="Kích cỡ: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding Container.CntrSize}" TextColor="Red"/>
+                                    </StackLayout>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="*,*">
+                                    <StackLayout Grid.Column="0" HorizontalOptions="Start" Orientation="Horizontal" Spacing="10" >
+                                        <Label Text="Hãng khai thác: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding Container.OprId}" TextColor="Red"/>
+                                    </StackLayout>
+                                </Grid>
+                                <Grid ColumnDefinitions="0.8*,0.2*" ColumnSpacing="12">
+                                    <Button Grid.Column="0" Text="Thuê" BackgroundColor="Green"></Button>
+                                    <Button Grid.Column="1" Text="Xóa" BackgroundColor="Red"></Button>
+                                </Grid>
+
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </dxcv:DXCollectionView.ItemTemplate>
+            </dxcv:DXCollectionView>
+        </Grid>
+    </ScrollView>
+    
+    
+</ContentPage>

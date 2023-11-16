@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppContainer.Components.ContainerCard"
+             Title="ContainerCard">
+    <Grid RowDefinitions="Auto,Auto,Auto" >
+        <Label Grid.Row="1" Text="A" HorizontalOptions="Start" TextColor="#0766AD" />
+        <Label Grid.Row="2" Text="B" FontSize="12" TextColor="#EC8F5E" HorizontalOptions="Start" />
+    </Grid>
+</ContentPage>

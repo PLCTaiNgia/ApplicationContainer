@@ -14,8 +14,8 @@ public partial class HomePage : ContentPage
     List<Oprld> _oprlds;
     List<SizeContainer> _sizecontainers;
     public HomePage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         LoadData();
         LoadCombo();
     }
@@ -41,10 +41,10 @@ public partial class HomePage : ContentPage
 
         var JsonCat = await client.GetStringAsync($"{constants.URL}/Category");
         var JsonSize = await client.GetStringAsync($"{constants.URL}/Container/ListSize");
-        
+
         OprIdRespone por = JsonConvert.DeserializeObject<OprIdRespone>(JsonCat);
         SizeRespone size = JsonConvert.DeserializeObject<SizeRespone>(JsonSize);
-        
+
         _oprlds = por.Data;
         _sizecontainers = size.Data;
         ComboOprld.ItemsSource = _oprlds;
