@@ -2,12 +2,11 @@ using AppContainer.ViewModels;
 
 namespace AppContainer.Views;
 
-public partial class LoginPage : ContentPage
+public partial class BookingPage : ContentPage
 {
-    public LoginPage(LoginViewModel vm)
+    public BookingPage(BookingViewModel vm)
     {
         InitializeComponent();
         BindingContext = vm;
     }
-
 }

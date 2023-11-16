@@ -20,7 +20,6 @@
                     FontAttributes="Bold" 
                     FontSize="Title"
                     CornerRadius="15"
-                    HeightRequest="70"
                     Margin="20,0,20,30"
                     Clicked="Button_Clicked_Logout"/>
         </DataTemplate>
@@ -39,14 +38,17 @@
                  Icon="user1.png"/>
         </Tab>
     </TabBar>-->
-    
-    <!--Giu ca hai lai-->
-    <ShellContent
-        Title="Login"
-        ContentTemplate="{DataTemplate views:LoginPage}"
-        Route="LoginPage"
-        Icon="user1.png"/>
 
+    <!--Thêm-->
+    <ShellContent
+        Title="Register"
+        ContentTemplate="{DataTemplate views:LoadingPage}"
+        Route="LoadingPage" 
+        Icon="adduser.png"
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
+
+    <!--Giu ca hai lai-->
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:HomePage}"
@@ -54,9 +56,25 @@
         Icon="home.png"/>
 
     <ShellContent
+     Title="Booking"
+     ContentTemplate="{DataTemplate views:BookingPage}"
+     Route="BookingPage" 
+     Icon="booking.png"/>
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="LoginPage"
+        Icon="user1.png"
+        Shell.FlyoutItemIsVisible="False"/>
+
+    <ShellContent
         Title="Register"
         ContentTemplate="{DataTemplate views:RegisterPage}"
         Route="RegisterPage" 
-        Icon="adduser.png"/>
+        Icon="adduser.png"
+        Shell.FlyoutItemIsVisible="False"/>
+    
+    
 
 </Shell>
