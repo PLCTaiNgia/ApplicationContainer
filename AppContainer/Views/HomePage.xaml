@@ -62,11 +62,33 @@
                     ItemSelected="listContainer_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell
-                                Text="{Binding CntrNo}"
-                                Detail="{Binding OprId}">
-                            </TextCell>
-                            
+                            <ViewCell>
+                                <Grid RowDefinitions="25,25"
+                                    ColumnDefinitions="95,*, 100">
+                                    <Label Grid.Row="0" Grid.Column="1" 
+                                        VerticalOptions="End"
+                                        TextColor="DarkBlue"
+                                        FontAttributes="Bold"
+                                        FontSize="Header"
+                                        Text="{Binding CntrNo}"/>
+                                    <Label Grid.Row="1" Grid.Column="1"
+                                        VerticalOptions="Center"
+                                        TextColor="ForestGreen"
+                                        FontSize="Small"
+                                        Text="{Binding OprId}"/>
+                                    <ImageButton Grid.RowSpan="2" Grid.Column="2"
+                                        VerticalOptions="Center"
+                                        Source="addcooking1.png"
+                                        Opacity="0.7"
+                                        Margin="5"
+                                        Clicked="ImageButton_Clicked_AddBooking"/>
+                                    <Image Grid.RowSpan="2"
+                                        Grid.Column="0"
+                                        Aspect="Fill"
+                                        Source="{Binding Thumbnail[0]}"
+                                        Margin="10,10,10,0"/>
+                                </Grid>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

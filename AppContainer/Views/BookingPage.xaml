@@ -36,9 +36,6 @@
                                     </CarouselView.ItemTemplate>
                                 </CarouselView>
 
-                                            
-
-
                                 <Grid ColumnDefinitions="*,*">
                                     <StackLayout Grid.Column="0" HorizontalOptions="Start" Orientation="Horizontal" Spacing="10" >
                                         <Label Text="Số Container: " FontAttributes="Bold"/>
