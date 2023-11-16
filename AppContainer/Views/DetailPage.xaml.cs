@@ -1,4 +1,3 @@
-using AppContainer.Models;
 using Container = AppContainer.Models.Container;
 
 namespace AppContainer.Views;
@@ -22,13 +21,13 @@ public partial class DetailPage : ContentPage
             lableStatus.Text = lableStatus.Text + ": " + value.Status;
             lableCMStatus.Text = lableCMStatus.Text + ": " + value.CMStatus;
         }
-        
-        
+
+
     }
 
     public DetailPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
     }
 
     async void Button_Clicked(object sender, EventArgs e)
@@ -45,7 +44,7 @@ public partial class DetailPage : ContentPage
             borderImg2.Opacity = 0;
             imgContainer.Source = imgContainer1.Source;
         }
-            
+
     }
 
     private void OnTapGestureRecognizerTapped1(object sender, TappedEventArgs e)
@@ -57,7 +56,7 @@ public partial class DetailPage : ContentPage
             borderImg2.Opacity = 0;
             imgContainer.Source = imgContainer2.Source;
         }
-        
+
     }
 
     private void OnTapGestureRecognizerTapped2(object sender, TappedEventArgs e)
@@ -69,6 +68,6 @@ public partial class DetailPage : ContentPage
             borderImg1.Opacity = 0;
             imgContainer.Source = imgContainer3.Source;
         }
-        
+
     }
 }

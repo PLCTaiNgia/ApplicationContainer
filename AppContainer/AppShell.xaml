@@ -5,16 +5,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:AppContainer.Views"
     xmlns:local="clr-namespace:AppContainer"
-    Shell.FlyoutBehavior="Flyout">
+    Shell.FlyoutBehavior="Flyout"
+    BackgroundColor="DarkBlue">
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Image Source="menuheader.png" Margin="0,0,0,30"/>
+            <Label Text="MENU" FontAttributes="Bold" FontSize="45"
+                   Margin="18,10"
+                   />
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
     <Shell.FlyoutFooterTemplate>
         <DataTemplate>
+            <!--<ImageButton 
+                Source="shutdown.png"
+                Clicked="Button_Clicked_Logout"
+                Margin="100,0"/>-->
             <Button Text="Logout" 
                     BackgroundColor="Black" 
                     FontAttributes="Bold" 

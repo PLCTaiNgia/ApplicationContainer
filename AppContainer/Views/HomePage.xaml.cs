@@ -1,9 +1,6 @@
 using AppContainer.Models;
-using CommunityToolkit.Maui.Core.Views;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Net.Http.Json;
 using Container = AppContainer.Models.Container;
 
 namespace AppContainer.Views;
@@ -85,6 +82,11 @@ public partial class HomePage : ContentPage
         _containerShow = container;
     }
 
+    private void ImageButton_Clicked_AddBooking(object sender, EventArgs e)
+    {
+        //
+    }
+
     private void ComboSize_SelectionChanged(object sender, EventArgs e)
     {
         if (_containerShow == null)
@@ -97,7 +99,7 @@ public partial class HomePage : ContentPage
         {
             SizeContainer siz = (SizeContainer)ComboSize.SelectedItem;
             var container = ResponeContainer.SearchContainer((siz.Value).ToString(), _containerShow);
-            if(container.Count == 0 || container == null)
+            if (container.Count == 0 || container == null)
             {
                 listContainer.ItemsSource = container;
                 labelMess.Opacity = 1;
