@@ -27,20 +27,20 @@ namespace AppContainer
 
             #region Add DI Services
             builder.Services.AddSingleton<IAuthService, AuthService>();
-            builder.Services.AddSingleton<IBookingService, BookingService>();
+            builder.Services.AddTransient<IBookingService, BookingService>();
 
             #endregion
 
             #region Add DI Pages
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<RegisterPage>();
-            builder.Services.AddSingleton<BookingPage>();
+            builder.Services.AddTransient<BookingPage>();
             #endregion
 
             #region Add DI ViewModels
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<RegisterViewModel>();
-            builder.Services.AddSingleton<BookingViewModel>();
+            builder.Services.AddTransient<BookingViewModel>();
 
             #endregion
 

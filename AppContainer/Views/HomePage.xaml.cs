@@ -84,7 +84,7 @@ public partial class HomePage : ContentPage
 
     private void ImageButton_Clicked_AddBooking(object sender, EventArgs e)
     {
-        //
+        DisplayAlert("Test", "Test", "Ok");
     }
 
     private void ComboSize_SelectionChanged(object sender, EventArgs e)
