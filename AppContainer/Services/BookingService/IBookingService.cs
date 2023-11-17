@@ -8,5 +8,6 @@ namespace AppContainer.Services.BookingService
         Task<List<Booking>> GetBookingsAsync();
         Task<List<Booking>> GetBookingsByAuthAsync();
         Task<bool> CreateBookingAsync(AddBookingDto addBookingDto);
+        Task<bool> DeleteBookingAsync(string bookingId);
     }
 }

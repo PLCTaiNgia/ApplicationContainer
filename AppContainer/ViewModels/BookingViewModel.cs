@@ -8,7 +8,7 @@ namespace AppContainer.ViewModels
 {
     public partial class BookingViewModel : BaseViewModel
     {
-        private readonly IBookingService bookingService;
+        public readonly IBookingService bookingService;
 
         [ObservableProperty]
         private List<Booking> bookings;
@@ -36,13 +36,22 @@ namespace AppContainer.ViewModels
 
         private async Task GetBookingsAsync()
         {
-            Bookings = await bookingService.GetBookingsAsync();
+            Bookings = await bookingService.GetBookingsByAuthAsync();
         }
 
         [RelayCommand]
-        void OnDelete(string id)
+        async Task OnDelete(string id)
         {
-            var a = 1;
+            var result = await bookingService.DeleteBookingAsync(id);
+            if (result)
+            {
+                await AppToast.ShowToastSuccessAsync("Xóa thành công");
+                await GetBookingsAsync();
+            }
+            else
+            {
+                await AppToast.ShowToastErrorAsync("Xóa thất bại");
+            }
         }
     }
 }
