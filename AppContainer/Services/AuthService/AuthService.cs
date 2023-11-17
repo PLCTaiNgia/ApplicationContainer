@@ -15,7 +15,7 @@ namespace AppContainer.Services.AuthService
             httpClient.BaseAddress = new Uri($"{constants.URL}/auth/");
         }
 
-        public async Task<bool> LoginAsync(LoginDto loginDto)
+        public async Task<ResponseApi<AuthResponse>> LoginAsync(LoginDto loginDto)
         {
             var jsonLoginPayload = JsonConvert.SerializeObject(loginDto);
             var data = new StringContent(jsonLoginPayload, Encoding.UTF8, "application/json");
@@ -25,14 +25,14 @@ namespace AppContainer.Services.AuthService
 
             var result = JsonConvert.DeserializeObject<ResponseApi<AuthResponse>>(resultString);
             //da check dk
-            if(result.Success == true && result.Data != null)
+            if (result.Success == true && result.Data != null)
             {
                 await SecureStorage.Default.SetAsync(constants.TOKEN, result.Data.Token.AccessToken);
                 await SecureStorage.Default.SetAsync(constants.CURRENT_USER, JsonConvert.SerializeObject(result.Data.User));
 
-            }   
+            }
 
-            return result.Success;
+            return result;
         }
 
         public async Task<bool> RegisterAsync(RegisterDto registerDto)
