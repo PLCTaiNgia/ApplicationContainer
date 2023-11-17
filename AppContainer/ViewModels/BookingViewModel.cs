@@ -2,6 +2,7 @@
 using AppContainer.Models;
 using AppContainer.Services.BookingService;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AppContainer.ViewModels
 {
@@ -30,12 +31,18 @@ namespace AppContainer.ViewModels
         public BookingViewModel(IBookingService bookingService)
         {
             this.bookingService = bookingService;
-            _ = GetBookingsAsync();
+            Task.Run(() => GetBookingsAsync());
         }
 
         private async Task GetBookingsAsync()
         {
             Bookings = await bookingService.GetBookingsAsync();
+        }
+
+        [RelayCommand]
+        void OnDelete(string id)
+        {
+            var a = 1;
         }
     }
 }
