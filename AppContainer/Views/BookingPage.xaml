@@ -8,6 +8,7 @@
              xmlns:dxg="clr-namespace:DevExpress.Maui.DataGrid;assembly=DevExpress.Maui.DataGrid"
              xmlns:dxe="clr-namespace:DevExpress.Maui.Editors;assembly=DevExpress.Maui.Editors"
              xmlns:dxdf="clr-namespace:DevExpress.Maui.DataForm;assembly=DevExpress.Maui.Editors"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:AppContainer.ViewModels"
              xmlns:model="clr-namespace:AppContainer.Models"
              x:DataType="vm:BookingViewModel"
@@ -17,7 +18,7 @@
     
     <ScrollView>
         <Grid RowDefinitions="Auto" Margin="10,10,10,0">
-            <dxcv:DXCollectionView Grid.Row="0" ItemsSource="{Binding Bookings}" ItemSpacing="12" Margin="0,30,0,30" >
+            <dxcv:DXCollectionView Grid.Row="0" ItemsSource="{Binding Bookings}" ItemSpacing="12" Margin="0,30,0,30" x:Name="MyCollection">
                 <dxcv:DXCollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Padding="22" BackgroundColor="White" HasShadow="False"  CornerRadius="12">
@@ -27,17 +28,14 @@
                                     <CarouselView.ItemTemplate>
                                         <DataTemplate>
                                             <Border WidthRequest="400" HeightRequest="250">
-                                                    <Border.StrokeShape>
-                                                        <RoundRectangle CornerRadius="12" />
-                                                    </Border.StrokeShape>
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="12" />
+                                                </Border.StrokeShape>
                                                 <Image Source="{Binding .}" Aspect="AspectFill" />
                                             </Border>
                                         </DataTemplate>
                                     </CarouselView.ItemTemplate>
                                 </CarouselView>
-
-                                            
-
 
                                 <Grid ColumnDefinitions="*,*">
                                     <StackLayout Grid.Column="0" HorizontalOptions="Start" Orientation="Horizontal" Spacing="10" >
@@ -58,8 +56,10 @@
                                 </Grid>
                                 <Grid ColumnDefinitions="0.8*,0.2*" ColumnSpacing="12">
                                     <Button Grid.Column="0" Text="Thuê" BackgroundColor="Green"></Button>
-                                    <Button Grid.Column="1" Text="Xóa" BackgroundColor="Red"></Button>
+                                    <Button  Grid.Column="1" Text="Xóa" BackgroundColor="Red" Command="{Binding BindingContext.DeleteCommand, Source={x:Reference MyCollection}}" CommandParameter="{Binding Id}">
+                                    </Button>
                                 </Grid>
+                               
 
                             </StackLayout>
                         </Frame>
