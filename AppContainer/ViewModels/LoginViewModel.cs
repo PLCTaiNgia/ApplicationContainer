@@ -39,13 +39,14 @@ namespace AppContainer.ViewModels
 
                 var result = await authService.LoginAsync(loginPayload);
 
-                if (result)
+                if (result.Success)
                 {
                     await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
                 }
                 else
                 {
                     //Show toast thông báo lỗi từ api trả về
+                    await AppToast.ShowToastErrorAsync(result.Message);
                 }
             }
             else

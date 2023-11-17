@@ -1,10 +1,12 @@
-﻿using AppContainer.Dto;
+﻿using AppContainer.Common;
+using AppContainer.Dto;
+using AppContainer.Models;
 
 namespace AppContainer.Services.AuthService
 {
     public interface IAuthService
     {
-        Task<bool> LoginAsync(LoginDto loginDto);
+        Task<ResponseApi<AuthResponse>> LoginAsync(LoginDto loginDto);
         Task<bool> RegisterAsync(RegisterDto registerDto);
     }
 }
